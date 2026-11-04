@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Briefing Creativv Beauty</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: uma coluna estreita, como uma ficha de atendimento; barra de progresso fixa no topo; respostas em pílulas */
+:root {
+  --bg: #f7f0f2;
+  --surface: #fffafb;
+  --ink: #2c1a2b;
+  --muted: #7a6573;
+  --line: #e6d7dd;
+  --accent: #9c4467;
+  --accent-soft: #f1dde5;
+  --on-accent: #ffffff;
+  --ok: #3f7a5a;
+  --font-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --font-body: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --radius: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17111a; --surface: #211823; --ink: #f3e7ec; --muted: #b29ea9;
+    --line: #3a2c3a; --accent: #e48aab; --accent-soft: #3b2232; --on-accent: #22121b; --ok: #7cc39b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #17111a; --surface: #211823; --ink: #f3e7ec; --muted: #b29ea9;
+  --line: #3a2c3a; --accent: #e48aab; --accent-soft: #3b2232; --on-accent: #22121b; --ok: #7cc39b;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg);
+}
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Topo */
+.hero { padding-block: 56px 32px; display: grid; gap: 16px; }
+.eyebrow {
+  font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent);
+}
+.hero h1 {
+  font-family: var(--font-display); font-weight: 400; font-style: italic;
+  font-size: clamp(44px, 10vw, 76px); line-height: .98; margin: 0; letter-spacing: -.01em;
+  text-wrap: balance;
+}
+.hero h1 b { font-style: normal; font-weight: 600; display: block; }
+.hero p { margin: 0; color: var(--muted); max-width: 56ch; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; color: var(--muted); }
+.facts span strong { color: var(--ink); font-weight: 600; }
+
+/* Barra de progresso */
+.progress {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.progress .wrap { display: flex; align-items: center; gap: 14px; padding-block: 12px; }
+.bar { flex: 1; height: 4px; border-radius: 4px; background: var(--line); overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .4s ease; }
+.progress small { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* Seções */
+form { display: grid; gap: 20px; padding-block: 28px 64px; }
+fieldset {
+  margin: 0; padding: 28px 24px; border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--surface); display: grid; gap: 24px; min-width: 0;
+  animation: rise .6s ease both;
+}
+legend { display: contents; }
+.sec-head { display: grid; gap: 6px; }
+.sec-num { font-family: var(--font-display); font-style: italic; color: var(--accent); font-size: 20px; }
+.sec-head h2 { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 28px; line-height: 1.15; text-wrap: balance; }
+.sec-head p { margin: 0; color: var(--muted); font-size: 15px; }
+
+.q { display: grid; gap: 10px; min-width: 0; }
+.q > label, .q > .label { font-weight: 600; font-size: 15.5px; }
+.q .hint { font-weight: 400; color: var(--muted); font-size: 14px; }
+.req { color: var(--accent); }
+
+input[type="text"], input[type="email"], input[type="tel"], textarea {
+  width: 100%; font: inherit; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px;
+  transition: border-color .2s, box-shadow .2s;
+}
+textarea { min-height: 92px; resize: vertical; }
+input:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+
+.pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill { position: relative; }
+.pill input { position: absolute; opacity: 0; pointer-events: none; }
+.pill span {
+  display: inline-block; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line);
+  font-size: 14.5px; cursor: pointer; user-select: none; background: var(--bg);
+  transition: background .2s, border-color .2s, color .2s, transform .15s;
+}
+.pill span:hover { border-color: var(--accent); }
+.pill input:checked + span { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.pill input:focus-visible + span { box-shadow: 0 0 0 3px var(--accent-soft); }
+.pill input:active + span { transform: scale(.97); }
+
+/* Envio */
+.send { background: var(--ink); color: var(--bg); border: none; }
+.send .sec-num, .send .sec-head h2 { color: var(--bg); }
+.send .sec-head p { color: color-mix(in srgb, var(--bg) 75%, var(--ink)); }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: inherit; font-weight: 600; font-size: 15px; padding: 13px 20px; border-radius: 999px;
+  border: 1px solid transparent; cursor: pointer; text-decoration: none;
+  transition: transform .15s, opacity .2s;
+}
+.btn:active { transform: scale(.97); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-ghost { background: transparent; color: var(--bg); border-color: color-mix(in srgb, var(--bg) 40%, transparent); }
+.status { font-size: 14px; min-height: 1.4em; margin: 0; }
+.status.err { color: var(--accent); }
+.note { font-size: 13.5px; margin: 0; color: color-mix(in srgb, var(--bg) 70%, var(--ink)); }
+
+footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; }
+
+@keyframes rise { from { transform: translateY(10px); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+@media (max-width: 480px) {
+  fieldset { padding: 22px 16px; }
+  .hero { padding-block: 36px 24px; }
+}
+</style>
+</head>
+<body>
+
+<header class="wrap hero">
+  <div class="eyebrow">Briefing da landing page</div>
+  <h1>Creativv <b>Beauty</b></h1>
+  <p>Estas respostas guiam o design, os textos e a parte técnica da sua página. Responda no seu tempo: o que você preencher fica salvo neste aparelho, e você pode voltar depois. Se não souber alguma, deixe em branco que conversamos na reunião.</p>
+  <div class="facts">
+    <span><strong id="total-q">55</strong> perguntas</span>
+    <span><strong>9</strong> blocos</span>
+    <span>cerca de <strong>20 min</strong></span>
+  </div>
+</header>
+
+<div class="progress" aria-hidden="true">
+  <div class="wrap">
+    <div class="bar"><i id="bar"></i></div>
+    <small id="count">0 de 0 respondidas</small>
+  </div>
+</div>
+
+<main class="wrap">
+  <form id="form" novalidate></form>
+</main>
+
+<footer class="wrap">Suas respostas só saem deste aparelho quando você tocar em enviar ou copiar.</footer>
+
+<script>
+// Número de WhatsApp de quem recebe o briefing, só dígitos com DDI (ex.: "5511999998888").
+// Vazio: o WhatsApp abre e a cliente escolhe o contato.
+const WHATSAPP = "5548998449018";
+const STORE_KEY = "briefing-creativv-v1";
+
+const SECTIONS = [
+  { title: "Seus dados", intro: "Para eu saber com quem falar.", qs: [
+    { id: "nome", label: "Seu nome", type: "t", required: true },
+    { id: "salao", label: "Nome do salão como deve aparecer na página", type: "t", value: "Creativv Beauty" },
+    { id: "whats", label: "WhatsApp", type: "tel" },
+    { id: "email", label: "E-mail", type: "email" },
+  ]},
+  { title: "Negócio e posicionamento", intro: "Define a mensagem principal e quais serviços ganham destaque.", qs: [
+    { id: "q1", label: "Como você descreveria o Creativv Beauty em uma frase?", type: "a" },
+    { id: "q2", label: "Qual o serviço principal?", hint: "O que mais fatura ou o que você mais quer vender.", type: "t" },
+    { id: "q3", label: "Quais serviços entram na página?", hint: "Pode colar a lista completa e marcar o que fica de fora.", type: "a" },
+    { id: "q4", label: "Como mostrar os preços?", type: "r", options: ["Preço exato", "\"A partir de\"", "Não mostrar preços"] },
+    { id: "q5", label: "Quem é sua cliente ideal?", hint: "Idade, estilo, bairro, quanto costuma gastar.", type: "a" },
+    { id: "q6", label: "O que diferencia você dos salões concorrentes da região?", type: "a" },
+    { id: "q7", label: "Cite 2 ou 3 concorrentes ou salões que você admira", type: "a" },
+    { id: "q8", label: "Onde você atende?", type: "m", options: ["No salão", "Em domicílio", "Eventos", "Noivas"] },
+  ]},
+  { title: "Identidade visual", intro: "O design é exclusivo, então quanto mais referências, melhor.", qs: [
+    { id: "q9", label: "Você tem o logo em boa qualidade?", type: "r", options: ["Sim, em vetor ou PNG sem fundo", "Só a imagem do Instagram", "Não tenho logo"] },
+    { id: "q10", label: "Já tem cores e fontes definidas? Quais?", type: "a" },
+    { id: "q11", label: "Quais palavras definem o salão?", hint: "Marque quantas quiser.", type: "m", options: ["Sofisticado", "Moderno", "Delicado", "Ousado", "Aconchegante", "Minimalista", "Divertido", "Natural"] },
+    { id: "q12", label: "Sites de qualquer área que você acha bonitos", hint: "Cole os links e diga o que gosta em cada um.", type: "a" },
+    { id: "q13", label: "Tem algo que você não quer ver de jeito nenhum?", hint: "Cores, estilos, tipos de foto.", type: "a" },
+    { id: "q14", label: "A decoração do salão tem algo marcante que a página deve refletir?", type: "a" },
+  ]},
+  { title: "Fotos, galeria e equipe", intro: "Fotos originais deixam a página bonita e leve. As do Instagram vêm comprimidas.", qs: [
+    { id: "q15", label: "Tem fotos do espaço, da equipe e dos trabalhos?", type: "r", options: ["Sim, profissionais", "Algumas, tiradas no celular", "Não tenho"] },
+    { id: "q16", label: "Posso usar as fotos do Instagram?", type: "r", options: ["Sim, e tenho os arquivos originais", "Sim, mas só estão no Instagram", "Prefiro que não"] },
+    { id: "q17", label: "Topa fazer uma sessão de fotos?", type: "r", options: ["Topo", "Prefiro usar o que tenho", "Quero conversar sobre isso"] },
+    { id: "q18", label: "Como organizar a galeria?", type: "r", options: ["Separada por serviço", "Galeria única"] },
+    { id: "q19", label: "Quer fotos de antes e depois?", type: "r", options: ["Sim, as clientes já autorizaram", "Sim, mas preciso pedir autorização", "Não"] },
+    { id: "q20", label: "Tem vídeos curtos (Reels) que devem entrar na página?", type: "r", options: ["Sim", "Não"] },
+    { id: "q21", label: "Quer apresentar a equipe?", type: "r", options: ["Sim, todas as profissionais", "Só a fundadora", "Não"] },
+    { id: "q22", label: "Tem uma história do salão ou da fundadora para contar?", type: "a" },
+  ]},
+  { title: "Depoimentos", intro: "Avaliações reais passam confiança para quem ainda não conhece o salão.", qs: [
+    { id: "q23", label: "Tem avaliações no Google? Quantas e qual a nota?", type: "t" },
+    { id: "q24", label: "Posso usar comentários do Instagram e do WhatsApp?", type: "r", options: ["Sim, com nome e foto", "Só com o primeiro nome", "Prefiro não"] },
+    { id: "q25", label: "Formato dos depoimentos", type: "r", options: ["Texto", "Vídeo", "Os dois"] },
+  ]},
+  { title: "Agendamento", intro: "É a parte que mais muda o prazo e o custo, porque define como o formulário funciona por trás.", qs: [
+    { id: "q26", label: "Como você agenda hoje?", type: "m", options: ["WhatsApp", "Direct do Instagram", "Telefone", "Sistema de agendamento"] },
+    { id: "q26b", label: "Se usa sistema, qual?", hint: "Trinks, Avec, Booksy, Salão99 ou outro.", type: "t" },
+    { id: "q27", label: "Para onde o formulário da página deve mandar os pedidos?", type: "r", options: ["Para o meu WhatsApp", "Para o meu e-mail", "Integrar com meu sistema", "Não sei, quero orientação"] },
+    { id: "q28", label: "O que o formulário deve pedir?", type: "m", options: ["Nome", "Telefone", "Serviço", "Profissional", "Data", "Horário", "Observações"] },
+    { id: "q29", label: "Como funciona o horário?", type: "r", options: ["A cliente escolhe o horário exato", "A cliente sugere e eu confirmo"] },
+    { id: "q30", label: "Cobra sinal ou pré-pagamento?", type: "r", options: ["Sim", "Só em alguns serviços", "Não"] },
+    { id: "q31", label: "Quem responde os pedidos e em quanto tempo?", type: "t" },
+    { id: "q32", label: "Quer um botão fixo de WhatsApp na tela?", type: "r", options: ["Sim", "Não"] },
+  ]},
+  { title: "Informações práticas", intro: "Aparecem no rodapé e no Google Maps.", qs: [
+    { id: "q33", label: "Endereço completo, ponto de referência e estacionamento", type: "a" },
+    { id: "q34", label: "Horário de funcionamento", hint: "Inclusive feriados.", type: "a" },
+    { id: "q35", label: "Formas de pagamento", type: "m", options: ["Pix", "Débito", "Crédito", "Parcelado", "Dinheiro"] },
+    { id: "q36", label: "Políticas de atraso, cancelamento e falta", type: "a" },
+  ]},
+  { title: "Google e celular", intro: "Define as palavras-chave e a região que vamos trabalhar para você aparecer nas buscas.", qs: [
+    { id: "q37", label: "Tem Perfil da Empresa no Google (Google Maps)?", type: "r", options: ["Sim, e tenho acesso", "Sim, mas não tenho acesso", "Não tenho", "Não sei"] },
+    { id: "q38", label: "Como as clientes te encontram hoje?", type: "m", options: ["Instagram", "Indicação", "Google", "Passando na frente", "Outro"] },
+    { id: "q39", label: "Quais bairros ou cidades você quer atender?", type: "t" },
+    { id: "q40", label: "Por quais buscas quer aparecer?", hint: "Ex.: mechas, alongamento de unha, design de sobrancelha.", type: "a" },
+    { id: "q41", label: "Já tem domínio (ex.: creativvbeauty.com.br)?", type: "r", options: ["Tenho domínio e e-mail profissional", "Só o domínio", "Não tenho"] },
+    { id: "q42", label: "Quer acompanhar visitas e agendamentos (Google Analytics, Pixel do Meta)?", type: "r", options: ["Sim", "Não", "Não sei o que é"] },
+    { id: "q43", label: "Pretende fazer anúncios pagos levando para a página?", type: "r", options: ["Sim", "Talvez", "Não"] },
+  ]},
+  { title: "Objetivos, prazo e manutenção", intro: "Para medir se a página está dando resultado.", qs: [
+    { id: "q44", label: "O que é sucesso para essa página?", type: "m", options: ["Mais agendamentos", "Clientes novas", "Ticket maior", "Noivas e eventos", "Fortalecer a marca"] },
+    { id: "q45", label: "Quantos agendamentos por mês você recebe hoje, mais ou menos?", type: "t" },
+    { id: "q46", label: "Tem promoção ou serviço de entrada para destacar?", hint: "Ex.: desconto na primeira visita.", type: "a" },
+    { id: "q47", label: "Qual o prazo? Tem alguma data importante?", hint: "Inauguração, campanha, data comemorativa.", type: "t" },
+    { id: "q48", label: "Qual o orçamento previsto?", type: "t" },
+    { id: "q49", label: "Depois de pronta, quem atualiza fotos, preços e depoimentos?", type: "r", options: ["Eu", "Prefiro um plano de manutenção", "Ainda não sei"] },
+    { id: "q50", label: "Além de você, mais alguém aprova o layout? Quem?", type: "t" },
+  ]},
+];
+
+const form = document.getElementById("form");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+
+function fieldHTML(q) {
+  const hint = q.hint ? ` <span class="hint">${esc(q.hint)}</span>` : "";
+  const req = q.required ? ' <span class="req" aria-hidden="true">*</span>' : "";
+  if (q.type === "r" || q.type === "m") {
+    const kind = q.type === "r" ? "radio" : "checkbox";
+    const pills = q.options.map((o, i) =>
+      `<label class="pill"><input type="${kind}" id="${q.id}-${i}" name="${q.id}" value="${esc(o)}"><span>${esc(o)}</span></label>`
+    ).join("");
+    return `<div class="q" role="group" aria-labelledby="${q.id}-l"><div class="label" id="${q.id}-l">${esc(q.label)}${req}${hint}</div><div class="pills">${pills}</div></div>`;
+  }
+  const label = `<label for="${q.id}">${esc(q.label)}${req}${hint}</label>`;
+  if (q.type === "a") return `<div class="q">${label}<textarea id="${q.id}" name="${q.id}"></textarea></div>`;
+  const type = q.type === "t" ? "text" : q.type;
+  const auto = { nome: "name", email: "email", whats: "tel" }[q.id] || "off";
+  return `<div class="q">${label}<input type="${type}" id="${q.id}" name="${q.id}" autocomplete="${auto}"${q.value ? ` value="${esc(q.value)}"` : ""}${q.required ? " required" : ""}></div>`;
+}
+
+form.innerHTML = SECTIONS.map((s, i) => `
+  <fieldset style="animation-delay:${Math.min(i, 3) * 70}ms">
+    <legend><div class="sec-head"><span class="sec-num">${String(i + 1).padStart(2, "0")}</span><h2>${esc(s.title)}</h2><p>${esc(s.intro)}</p></div></legend>
+    ${s.qs.map(fieldHTML).join("")}
+  </fieldset>`).join("") + `
+  <fieldset class="send">
+    <legend><div class="sec-head"><span class="sec-num">Pronto</span><h2>Enviar respostas</h2><p>As respostas são montadas numa mensagem organizada. Envie pelo WhatsApp ou copie e cole onde preferir.</p></div></legend>
+    <div class="actions">
+      <a class="btn btn-primary" id="wa" href="#" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
+      <button class="btn btn-ghost" type="button" id="copy">Copiar respostas</button>
+    </div>
+    <p class="status" id="status" role="status"></p>
+    <p class="note">Respostas muito longas podem não caber no WhatsApp. Nesse caso, use Copiar e cole a mensagem na conversa.</p>
+  </fieldset>`;
+
+const ALL = SECTIONS.flatMap(s => s.qs);
+document.getElementById("total-q").textContent = ALL.length;
+
+function valueOf(q) {
+  if (q.type === "r" || q.type === "m") {
+    return [...form.querySelectorAll(`input[name="${q.id}"]:checked`)].map(i => i.value).join(", ");
+  }
+  return form.elements[q.id].value.trim();
+}
+
+function buildText() {
+  const out = ["*Briefing da landing page: Creativv Beauty*"];
+  SECTIONS.forEach((s, i) => {
+    const lines = s.qs.map(q => [q, valueOf(q)]).filter(([, v]) => v).map(([q, v]) => `• ${q.label}\n${v}`);
+    if (lines.length) out.push(`\n*${i + 1}. ${s.title}*\n` + lines.join("\n\n"));
+  });
+  return out.join("\n");
+}
+
+function save() {
+  const data = {};
+  ALL.forEach(q => { data[q.id] = valueOf(q); });
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(data)); } catch (e) {}
+}
+
+function restore() {
+  let data = null;
+  try { data = JSON.parse(localStorage.getItem(STORE_KEY) || "null"); } catch (e) {}
+  if (!data) return;
+  ALL.forEach(q => {
+    const v = data[q.id];
+    if (v == null) return;
+    if (q.type === "r" || q.type === "m") {
+      const picked = v.split(", ");
+      form.querySelectorAll(`input[name="${q.id}"]`).forEach(i => { i.checked = picked.includes(i.value); });
+    } else {
+      form.elements[q.id].value = v;
+    }
+  });
+}
+
+function update() {
+  const answered = ALL.filter(q => valueOf(q)).length;
+  document.getElementById("bar").style.width = (answered / ALL.length * 100) + "%";
+  document.getElementById("count").textContent = `${answered} de ${ALL.length} respondidas`;
+  const text = encodeURIComponent(buildText());
+  document.getElementById("wa").href = WHATSAPP
+    ? `https://wa.me/${WHATSAPP}?text=${text}`
+    : `https://api.whatsapp.com/send?text=${text}`;
+}
+
+const status = document.getElementById("status");
+function needName() {
+  if (form.elements.nome.value.trim()) return false;
+  status.textContent = "Preencha seu nome no primeiro bloco antes de enviar.";
+  status.className = "status err";
+  form.elements.nome.focus();
+  return true;
+}
+
+let saveTimer;
+form.addEventListener("input", () => {
+  update();
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(save, 400);
+  if (status.classList.contains("err") && form.elements.nome.value.trim()) { status.textContent = ""; status.className = "status"; }
+});
+form.addEventListener("submit", e => e.preventDefault());
+
+document.getElementById("wa").addEventListener("click", e => {
+  if (needName()) { e.preventDefault(); return; }
+  status.className = "status";
+  status.textContent = "O WhatsApp foi aberto em outra aba. Confira a mensagem e toque em enviar por lá.";
+});
+
+document.getElementById("copy").addEventListener("click", async () => {
+  if (needName()) return;
+  const text = buildText();
+  status.className = "status";
+  try {
+    await navigator.clipboard.writeText(text);
+    status.textContent = "Respostas copiadas. Agora é só colar na conversa ou no e-mail.";
+  } catch (e) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.cssText = "width:100%;min-height:200px;margin-top:4px";
+    status.replaceChildren("Não deu para copiar automaticamente. Selecione o texto abaixo e copie:", ta);
+    ta.focus();
+    ta.select();
+  }
+});
+
+restore();
+update();
+</script>
+
+</body>
+</html>
