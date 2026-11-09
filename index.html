@@ -2,398 +2,585 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="noindex">
-<title>Briefing Creativv Beauty</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creativv Art Hair Beauty | Salão de Beleza em Araranguá</title>
+<meta name="description" content="Creativv Art Hair Beauty: há mais de 15 anos realçando beleza com técnica e personalidade em Araranguá/SC. Cabelo, maquiagem, unhas e produções para eventos.">
+<meta name="theme-color" content="#0b0a09">
+<meta property="og:title" content="Creativv Art Hair Beauty — Araranguá/SC">
+<meta property="og:description" content="Cabelo • Maquiagem • Unhas. Beleza que revela a sua essência.">
+<meta property="og:image" content="img/hero.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Manrope:wght@400;500;600;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* Layout: uma coluna estreita, como uma ficha de atendimento; barra de progresso fixa no topo; respostas em pílulas */
-:root {
-  --bg: #f7f0f2;
-  --surface: #fffafb;
-  --ink: #2c1a2b;
-  --muted: #7a6573;
-  --line: #e6d7dd;
-  --accent: #9c4467;
-  --accent-soft: #f1dde5;
-  --on-accent: #ffffff;
-  --ok: #3f7a5a;
-  --font-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
-  --font-body: "Manrope", "Segoe UI", system-ui, sans-serif;
-  --radius: 14px;
+:root{
+  --black:#0b0a09;
+  --ink:#141210;
+  --ink-2:#1c1916;
+  --line:rgba(201,164,92,.22);
+  --gold:#c9a45c;
+  --gold-light:#e9d3a0;
+  --gold-dark:#9a7434;
+  --gold-grad:linear-gradient(115deg,#9a7434 0%,#d9b96f 35%,#f1deb0 50%,#c9a45c 68%,#8f6a2e 100%);
+  --ivory:#f4eee5;
+  --ivory-2:#ebe2d5;
+  --text:#ece6dc;
+  --muted:#a59d90;
+  --muted-dark:#5d564d;
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --display:"Cinzel","Cormorant Garamond",serif;
+  --sans:"Montserrat",system-ui,sans-serif;
+  --gutter:clamp(16px,5vw,72px);
+  --max:1320px;
+  --ease:cubic-bezier(.22,.8,.2,1);
+  --wa:"https://bit.ly/LinkWatsappClicaAqui";
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #17111a; --surface: #211823; --ink: #f3e7ec; --muted: #b29ea9;
-    --line: #3a2c3a; --accent: #e48aab; --accent-soft: #3b2232; --on-accent: #22121b; --ok: #7cc39b;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #17111a; --surface: #211823; --ink: #f3e7ec; --muted: #b29ea9;
-  --line: #3a2c3a; --accent: #e48aab; --accent-soft: #3b2232; --on-accent: #22121b; --ok: #7cc39b;
-  color-scheme: dark;
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--black);color:var(--text);font-family:var(--sans);font-weight:300;font-size:clamp(15px,1vw + 10px,17px);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:0;background:var(--gold);color:var(--black);padding:10px 16px;z-index:200}
+.skip:focus{left:16px;top:16px}
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
 
-* { box-sizing: border-box; }
-body { margin: 0; }
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.55;
-}
-body::before {
-  content: ""; position: fixed; inset: 0 0 auto;
-  height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg);
-}
-.wrap {
-  max-width: 720px;
-  margin: 0 auto;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
-}
+/* ---------- Tipografia ---------- */
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:11px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before{content:"";width:38px;height:1px;background:var(--gold)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05;letter-spacing:-.01em}
+h2{font-size:clamp(38px,4.6vw,68px)}
+h2 em,h1 em{font-style:italic;color:var(--gold-light)}
+.gold-text{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);max-width:52ch}
 
-/* Topo */
-.hero { padding-block: 56px 32px; display: grid; gap: 16px; }
-.eyebrow {
-  font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent);
-}
-.hero h1 {
-  font-family: var(--font-display); font-weight: 400; font-style: italic;
-  font-size: clamp(44px, 10vw, 76px); line-height: .98; margin: 0; letter-spacing: -.01em;
-  text-wrap: balance;
-}
-.hero h1 b { font-style: normal; font-weight: 600; display: block; }
-.hero p { margin: 0; color: var(--muted); max-width: 56ch; }
-.facts { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; color: var(--muted); }
-.facts span strong { color: var(--ink); font-weight: 600; }
+/* ---------- Botões ---------- */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:54px;padding:0 30px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;overflow:hidden;isolation:isolate;transition:color .5s var(--ease),border-color .5s var(--ease)}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .5s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-gold{background:var(--gold-grad);background-size:200% 100%;color:var(--black);transition:background-position .8s var(--ease)}
+.btn-gold:hover{background-position:100% 0}
+.btn-line{border:1px solid var(--line);color:var(--text)}
+.btn-line::before{content:"";position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .6s var(--ease);z-index:-1}
+.btn-line:hover{color:var(--black);border-color:var(--gold)}
+.btn-line:hover::before{transform:scaleX(1);transform-origin:left}
 
-/* Barra de progresso */
-.progress {
-  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
-  background: color-mix(in srgb, var(--bg) 92%, transparent);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--line);
+/* ---------- Header ---------- */
+.header{position:fixed;inset:0 0 auto;z-index:100;transition:background .5s var(--ease),border-color .5s var(--ease),transform .5s var(--ease);border-bottom:1px solid transparent}
+.header.scrolled{background:rgba(11,10,9,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:84px;gap:24px}
+.logo{display:block;line-height:0}
+.logo img{height:clamp(50px,5vw,66px);width:auto}
+.footer .logo img{height:76px}
+.menu{display:flex;align-items:center;gap:clamp(20px,2.4vw,40px);list-style:none}
+.menu a{position:relative;font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);transition:color .3s}
+.menu a::after{content:"";position:absolute;left:0;bottom:-6px;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.menu a:hover,.menu a.active{color:var(--text)}
+.menu a:hover::after,.menu a.active::after{transform:scaleX(1);transform-origin:left}
+.nav .btn{min-height:46px;padding:0 22px}
+.burger{display:none;width:46px;height:46px;border:1px solid var(--line);position:relative}
+.burger span{position:absolute;left:12px;right:12px;height:1px;background:var(--text);transition:transform .4s var(--ease),opacity .3s}
+.burger span:nth-child(1){top:17px}.burger span:nth-child(2){top:22px}.burger span:nth-child(3){top:27px}
+.menu-open .burger span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.menu-open .burger span:nth-child(2){opacity:0}
+.menu-open .burger span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100svh;display:grid;align-items:center;padding:130px 0 90px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 78% 40%,rgba(201,164,92,.14),transparent 70%),linear-gradient(180deg,transparent 70%,var(--black));pointer-events:none}
+.hero-grid>*{min-width:0}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,96px);align-items:center}
+.hero h1{font-size:clamp(50px,7.4vw,118px);margin:28px 0 30px}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line>span{display:block;transform:translateY(105%);transition:transform 1.2s var(--ease)}
+.loaded .hero h1 .line>span{transform:none}
+.hero h1 .line:nth-child(2)>span{transition-delay:.12s}
+.hero h1 .line:nth-child(3)>span{transition-delay:.24s}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:42px}
+.hero-media{position:relative;justify-self:end;width:100%;max-width:480px}
+.hero-media::before{content:"";position:absolute;inset:-22px 22px 22px -22px;border:1px solid var(--gold);opacity:.6}
+.hero-frame{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--ink)}
+.hero-frame img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;transform:scale(1.12);transition:transform 2.2s var(--ease)}
+.loaded .hero-frame img{transform:scale(1)}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+
+/* ---------- Seções ---------- */
+section{position:relative}
+.section{padding:clamp(90px,12vw,170px) 0}
+.section-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(48px,6vw,88px)}
+.section-head h2{margin-top:22px}
+
+/* Sobre */
+.about{background:var(--black);color:var(--text);border-top:1px solid var(--line)}
+.about::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 20% 50%,rgba(201,164,92,.10),transparent 70%);pointer-events:none}
+.about-grid{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(48px,7vw,120px);align-items:center}
+.about-media{position:relative;width:calc(100% - 22px);max-width:500px;margin:22px 0 0 22px}
+.about-media::before{content:"";position:absolute;inset:-22px 22px 22px -22px;border:1px solid var(--gold);opacity:.6;pointer-events:none}
+.about-media::after{content:"";position:absolute;right:-8px;bottom:-8px;width:96px;height:96px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);pointer-events:none}
+.about-media figure{position:relative;overflow:hidden;background:var(--ink)}
+.about-media img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%}
+.about-media figure:hover img{transform:scale(1.04)}
+.about-text p{color:var(--muted);margin-top:24px;max-width:56ch}
+.about-text h2{margin-top:22px}
+
+/* Serviços */
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.service{position:relative;display:flex;flex-direction:column;min-height:520px;padding:36px 30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;isolation:isolate}
+.service-bg{position:absolute;inset:0;z-index:-2;opacity:0;transform:scale(1.08);transition:opacity .8s var(--ease),transform 1.4s var(--ease)}
+.service-bg img{width:100%;height:100%;object-fit:cover}
+.service::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(11,10,9,.35),rgba(11,10,9,.94) 75%);opacity:0;transition:opacity .8s var(--ease)}
+.service:hover .service-bg,.service:focus-within .service-bg{opacity:1;transform:scale(1)}
+.service:hover::after,.service:focus-within::after{opacity:1}
+.service-num{font-family:var(--serif);font-size:15px;color:var(--gold)}
+.service-icon{width:46px;height:46px;margin:44px 0 120px;color:var(--gold);transition:transform .8s var(--ease)}
+.service:hover .service-icon{transform:translateY(-8px)}
+.service-link{margin-top:auto}
+.service h3{font-size:clamp(30px,2.6vw,38px);margin-bottom:14px}
+.service p{color:var(--muted);font-size:14px;line-height:1.65;margin-bottom:20px}
+.service ul{list-style:none;display:grid;gap:8px;margin-bottom:26px}
+.service li{font-size:12px;letter-spacing:.08em;text-transform:uppercase;display:flex;gap:10px;align-items:center}
+.service li::before{content:"";width:12px;height:1px;background:var(--gold)}
+.service-link{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-light)}
+.service-link svg{width:16px;transition:transform .5s var(--ease)}
+.service:hover .service-link svg{transform:translateX(6px)}
+
+
+/* Portfólio */
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(90px,9vw,128px);gap:14px}
+.g-item{position:relative;overflow:hidden;background:var(--ink);cursor:zoom-in}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease),filter .8s var(--ease);filter:saturate(.9)}
+.g-item:hover img{transform:scale(1.06);filter:saturate(1.05)}
+.g1{grid-column:1/5;grid-row:1/6}
+.g2{grid-column:5/9;grid-row:1/4}
+.g3{grid-column:9/13;grid-row:1/5}
+.g4{grid-column:5/9;grid-row:4/9}
+.g5{grid-column:1/5;grid-row:6/9}
+.g6{grid-column:9/13;grid-row:5/9}
+.gallery-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:44px;padding-top:30px;border-top:1px solid var(--line)}
+.gallery-foot p{color:var(--muted);font-size:14px}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;z-index:300;background:rgba(6,5,4,.94);display:grid;place-items:center;padding:60px 16px;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
+.lightbox.open{opacity:1;visibility:visible}
+.lightbox img{max-height:84vh;width:auto;border:1px solid var(--line);transform:scale(.96);transition:transform .6s var(--ease)}
+.lightbox.open img{transform:none}
+.lightbox button{position:absolute;top:20px;right:20px;width:50px;height:50px;border:1px solid var(--line);font-size:22px;line-height:1}
+.lightbox button:hover{border-color:var(--gold);color:var(--gold)}
+
+/* Processo */
+.process{background:var(--ivory);color:var(--black)}
+.process .eyebrow{color:var(--gold-dark)}.process .eyebrow::before{background:var(--gold-dark)}
+.process h2 em{color:var(--gold-dark)}
+.process .lead{color:var(--muted-dark)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);counter-reset:s;border-top:1px solid rgba(11,10,9,.16)}
+.step{position:relative;padding:44px 40px 10px 0}
+.step+.step{padding-left:40px;border-left:1px solid rgba(11,10,9,.16)}
+.step::before{counter-increment:s;content:"0" counter(s);display:block;font-family:var(--serif);font-size:84px;line-height:1;color:transparent;-webkit-text-stroke:1px var(--gold-dark);margin-bottom:26px}
+.step h3{font-size:30px;margin-bottom:12px}
+.step p{color:var(--muted-dark);font-size:15px}
+.step::after{content:"";position:absolute;top:-1px;left:0;width:0;height:2px;background:var(--gold-dark);transition:width 1.2s var(--ease)}
+.step+.step::after{left:-1px}
+.step.in::after{width:100%}
+
+/* CTA */
+.cta{position:relative;overflow:hidden;padding:clamp(100px,13vw,180px) 0;text-align:center}
+.cta-bg{position:absolute;inset:0;z-index:-1}
+.cta-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;opacity:.28;filter:grayscale(.4)}
+.cta-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 90% at 50% 50%,rgba(11,10,9,.55),var(--black))}
+.cta h2{font-size:clamp(44px,6.4vw,96px);margin:24px auto 26px;max-width:14ch}
+.cta .lead{margin-inline:auto}
+.cta .hero-actions{justify-content:center}
+
+/* Contato */
+.contact-grid{display:grid;grid-template-columns:1fr 1.15fr;border:1px solid var(--line)}
+.contact-info{padding:clamp(40px,5vw,72px)}
+.contact-info h2{font-size:clamp(34px,3.6vw,52px);margin:20px 0 40px}
+.info-list{list-style:none;display:grid}
+.info-list li{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:22px 0;border-top:1px solid var(--line)}
+.info-list li:last-child{border-bottom:1px solid var(--line)}
+.info-list svg{width:22px;height:22px;color:var(--gold);margin-top:3px}
+.info-list small{display:block;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+.info-list a,.info-list p{font-size:16px;transition:color .3s}
+.info-list a:hover{color:var(--gold-light)}
+.map{position:relative;min-height:440px;border-left:1px solid var(--line);background:var(--ink)}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) invert(.92) contrast(.9) sepia(.15)}
+
+/* Footer */
+.footer{border-top:1px solid var(--line);padding:56px 0 100px;margin-top:clamp(90px,10vw,140px)}
+.footer-top{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+.footer .menu{flex-wrap:wrap;gap:24px}
+.socials{display:flex;gap:10px}
+.socials a{width:46px;height:46px;display:grid;place-items:center;border:1px solid var(--line);transition:background .4s var(--ease),color .4s,border-color .4s}
+.socials a:hover{background:var(--gold);border-color:var(--gold);color:var(--black)}
+.socials svg{width:18px;height:18px}
+.footer-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);letter-spacing:.04em}
+
+/* WhatsApp flutuante */
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:90;display:flex;align-items:center;gap:12px;height:58px;padding:0 20px 0 18px;background:var(--gold-grad);background-size:200% 100%;color:var(--black);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;box-shadow:0 18px 40px -12px rgba(0,0,0,.7);transform:translateY(120px);transition:transform .7s var(--ease),background-position .8s var(--ease)}
+.wa-float.show{transform:none}
+.wa-float:hover{background-position:100% 0}
+.wa-float svg{width:22px;height:22px}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+.clip>img{clip-path:inset(0 0 100% 0);transition:clip-path 1.4s var(--ease),transform 1.2s var(--ease)}
+.clip.in>img{clip-path:inset(0 0 0 0)}
+
+/* ---------- Responsivo ---------- */
+@media (max-width:1100px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .service{min-height:440px}
+  .service-icon{margin-bottom:60px}
 }
-.progress .wrap { display: flex; align-items: center; gap: 14px; padding-block: 12px; }
-.bar { flex: 1; height: 4px; border-radius: 4px; background: var(--line); overflow: hidden; }
-.bar i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .4s ease; }
-.progress small { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
-
-/* Seções */
-form { display: grid; gap: 20px; padding-block: 28px 64px; }
-fieldset {
-  margin: 0; padding: 28px 24px; border: 1px solid var(--line); border-radius: var(--radius);
-  background: var(--surface); display: grid; gap: 24px; min-width: 0;
-  animation: rise .6s ease both;
+@media (max-width:960px){
+  .menu,.nav>.btn{display:none}
+  .burger{display:block}
+  .mobile-menu{position:fixed;inset:84px 0 0;z-index:99;visibility:hidden;background:var(--black);display:flex;flex-direction:column;justify-content:space-between;padding:40px var(--gutter) 40px;transform:translateX(100%);transition:transform .7s var(--ease);border-top:1px solid var(--line)}
+  .menu-open .mobile-menu{transform:none;visibility:visible}
+  .menu-open .header{background:var(--black);border-color:var(--line)}
+  .mobile-menu ul{list-style:none}
+  .mobile-menu li{border-bottom:1px solid var(--line)}
+  .mobile-menu li a{display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-family:var(--serif);font-size:34px}
+  .mobile-menu li a small{font-family:var(--sans);font-size:11px;color:var(--gold)}
+  .hero-grid,.about-grid,.contact-grid,.section-head{grid-template-columns:1fr}
+  .hero{padding-top:120px}
+  .hero-media{justify-self:start;max-width:520px;margin-left:22px;width:calc(100% - 22px)}
+  .steps{grid-template-columns:1fr}
+  .step,.step+.step{padding:36px 0 30px;border-left:0;border-top:1px solid rgba(11,10,9,.16)}
+  .step+.step::after{left:0}
+  .map{border-left:0;border-top:1px solid var(--line);min-height:360px}
+  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:auto}
+  .g-item{grid-column:auto!important;grid-row:auto!important;aspect-ratio:3/4}
 }
-legend { display: contents; }
-.sec-head { display: grid; gap: 6px; }
-.sec-num { font-family: var(--font-display); font-style: italic; color: var(--accent); font-size: 20px; }
-.sec-head h2 { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 28px; line-height: 1.15; text-wrap: balance; }
-.sec-head p { margin: 0; color: var(--muted); font-size: 15px; }
-
-.q { display: grid; gap: 10px; min-width: 0; }
-.q > label, .q > .label { font-weight: 600; font-size: 15.5px; }
-.q .hint { font-weight: 400; color: var(--muted); font-size: 14px; }
-.req { color: var(--accent); }
-
-input[type="text"], input[type="email"], input[type="tel"], textarea {
-  width: 100%; font: inherit; color: var(--ink); background: var(--bg);
-  border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px;
-  transition: border-color .2s, box-shadow .2s;
+@media (min-width:961px){.mobile-menu{display:none}}
+@media (max-width:600px){
+  .services-grid{grid-template-columns:1fr}
+  .service{min-height:auto}
+  .service-icon{margin:30px 0 26px}
+  .service-bg{opacity:.35;transform:none}
+  .service::after{opacity:1}
+  .hero-actions .btn{flex:1 1 100%}
+  .wa-float span{display:none}
+  .wa-float{width:58px;padding:0;justify-content:center}
+  .gallery{gap:8px}
+  .footer-top{flex-direction:column;align-items:flex-start}
 }
-textarea { min-height: 92px; resize: vertical; }
-input:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
-
-.pills { display: flex; flex-wrap: wrap; gap: 8px; }
-.pill { position: relative; }
-.pill input { position: absolute; opacity: 0; pointer-events: none; }
-.pill span {
-  display: inline-block; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line);
-  font-size: 14.5px; cursor: pointer; user-select: none; background: var(--bg);
-  transition: background .2s, border-color .2s, color .2s, transform .15s;
-}
-.pill span:hover { border-color: var(--accent); }
-.pill input:checked + span { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
-.pill input:focus-visible + span { box-shadow: 0 0 0 3px var(--accent-soft); }
-.pill input:active + span { transform: scale(.97); }
-
-/* Envio */
-.send { background: var(--ink); color: var(--bg); border: none; }
-.send .sec-num, .send .sec-head h2 { color: var(--bg); }
-.send .sec-head p { color: color-mix(in srgb, var(--bg) 75%, var(--ink)); }
-.actions { display: flex; flex-wrap: wrap; gap: 10px; }
-.btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  font: inherit; font-weight: 600; font-size: 15px; padding: 13px 20px; border-radius: 999px;
-  border: 1px solid transparent; cursor: pointer; text-decoration: none;
-  transition: transform .15s, opacity .2s;
-}
-.btn:active { transform: scale(.97); }
-.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-.btn-primary { background: var(--accent); color: var(--on-accent); }
-.btn-ghost { background: transparent; color: var(--bg); border-color: color-mix(in srgb, var(--bg) 40%, transparent); }
-.status { font-size: 14px; min-height: 1.4em; margin: 0; }
-.status.err { color: var(--accent); }
-.note { font-size: 13.5px; margin: 0; color: color-mix(in srgb, var(--bg) 70%, var(--ink)); }
-
-footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; }
-
-@keyframes rise { from { transform: translateY(10px); } to { transform: none; } }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-}
-@media (max-width: 480px) {
-  fieldset { padding: 22px 16px; }
-  .hero { padding-block: 36px 24px; }
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .reveal,.clip>img,.hero h1 .line>span{opacity:1;transform:none;clip-path:none}
 }
 </style>
 </head>
 <body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
-<header class="wrap hero">
-  <div class="eyebrow">Briefing da landing page</div>
-  <h1>Creativv <b>Beauty</b></h1>
-  <p>Estas respostas guiam o design, os textos e a parte técnica da sua página. Responda no seu tempo: o que você preencher fica salvo neste aparelho, e você pode voltar depois. Se não souber alguma, deixe em branco que conversamos na reunião.</p>
-  <div class="facts">
-    <span><strong id="total-q">55</strong> perguntas</span>
-    <span><strong>9</strong> blocos</span>
-    <span>cerca de <strong>20 min</strong></span>
+<!-- Header -->
+<header class="header" id="header">
+  <div class="wrap nav">
+    <a href="#inicio" class="logo" aria-label="Creativv Art Hair Beauty — início">
+      <img src="img/logo-transparente.png" alt="Creativv Art Hair Beauty" width="278" height="117">
+    </a>
+    <nav aria-label="Principal">
+      <ul class="menu">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#como-funciona">Agendamento</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-gold" href="https://bit.ly/LinkWatsappClicaAqui" target="_blank" rel="noopener">Agendar horário</a>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
   </div>
 </header>
-
-<div class="progress" aria-hidden="true">
-  <div class="wrap">
-    <div class="bar"><i id="bar"></i></div>
-    <small id="count">0 de 0 respondidas</small>
-  </div>
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="#sobre">Sobre <small>01</small></a></li>
+    <li><a href="#servicos">Serviços <small>02</small></a></li>
+    <li><a href="#portfolio">Portfólio <small>03</small></a></li>
+    <li><a href="#como-funciona">Agendamento <small>04</small></a></li>
+    <li><a href="#contato">Contato <small>05</small></a></li>
+  </ul>
+  <a class="btn btn-gold" href="https://bit.ly/LinkWatsappClicaAqui" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
 </div>
 
-<main class="wrap">
-  <form id="form" novalidate></form>
+<main id="conteudo">
+<!-- Hero -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>
+        <span class="line"><span>Beleza que</span></span>
+        <span class="line"><span><em>revela</em> a sua</span></span>
+        <span class="line"><span class="gold-text">essência.</span></span>
+      </h1>
+      <p class="lead reveal">Há mais de 15 anos realçando beleza com técnica e personalidade. Cabelo, maquiagem e unhas pensados para valorizar quem você é.</p>
+      <div class="hero-actions reveal d1">
+        <a class="btn btn-gold" href="https://bit.ly/LinkWatsappClicaAqui" target="_blank" rel="noopener">
+          Agendar meu horário
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-line" href="#servicos">Ver serviços</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="hero-frame"><img src="img/hero.webp" alt="Noiva sorrindo com penteado em ondas e tiara, produzida pelo Creativv" fetchpriority="high" width="1024" height="683" style="object-position:52% 30%"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Sobre -->
+<section class="about section" id="sobre">
+  <div class="wrap about-grid">
+    <div class="about-media">
+      <figure class="clip"><img src="img/sobre.webp" alt="Casal fundador do Creativv Art Hair Beauty, sorrindo, vestidos de branco" loading="lazy" width="1333" height="2000"></figure>
+    </div>
+    <div class="about-text">
+      <span class="eyebrow reveal">Sobre o Creativv</span>
+      <h2 class="reveal d1">Técnica, cuidado e <em>personalidade</em> em cada detalhe.</h2>
+      <p class="reveal d2">O Creativv Art Hair Beauty nasceu para ir além da estética. Aqui, cada atendimento começa por ouvir você: seu estilo, sua rotina e o que faz você se sentir confiante.</p>
+      <p class="reveal d2">Nossa equipe se atualiza constantemente — de terapia capilar a técnicas de iluminação e maquiagem — para entregar transformações sofisticadas, sem exageros, que respeitam a saúde dos fios e a beleza natural de cada pessoa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Serviços -->
+<section class="section" id="servicos">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow reveal">Nossos serviços</span>
+        <h2 class="reveal d1">Tudo para a sua <em>melhor versão</em>.</h2>
+      </div>
+      <p class="lead reveal d2">Do corte do dia a dia à produção completa para o seu grande momento.</p>
+    </div>
+    <div class="services-grid">
+      <article class="service reveal">
+        <div class="service-bg"><img src="img/corte.jpg" alt="" loading="lazy"></div>
+        <span class="service-num">01</span>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="36" r="6"/><circle cx="36" cy="36" r="6"/><path d="M16 32 38 6M32 32 10 6"/></svg>
+        <h3>Cabelo</h3>
+        <p>Cortes com precisão, coloração e iluminação dimensional para um visual autêntico.</p>
+        <ul><li>Cortes femininos e masculinos</li><li>Mechas e coloração</li><li>Terapia capilar</li></ul>
+        <a class="service-link" href="https://bit.ly/LinkWatsappClicaAqui" target="_blank" rel="noopener">Agendar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+      </article>
+      <article class="service reveal d1">
+        <div class="service-bg"><img src="img/escova.jpg" alt="" loading="lazy"></div>
+        <span class="service-num">02</span>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M14 4c0 12 4 18 4 26s-4 14-4 14M24 4c0 12 4 18 4 26s-4 14-4 14M34 4c0 12 4 18 4 26s-4 14-4 14"/></svg>
+        <h3>Tratamentos</h3>
+        <p>Alinhamento, brilho e saúde dos fios com produtos de alta performance.</p>
+        <ul><li>Escova definitiva sem formol</li><li>Hidratação e reconstrução</li><li>Gloss express</li></ul>
+        <a class="service-link" href="https://bit.ly/LinkWatsappClicaAqui" target="_blank" rel="noopener">Agendar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+      </article>
+      <article class="service reveal d2">
+        <div class="service-bg"><img src="img/aline.jpg" alt="" loading="lazy"></div>
+        <span class="service-num">03</span>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20 44V22h8v22zM22 22V10l4-6v18"/><path d="M14 44h20"/></svg>
+        <h3>Maquiagem</h3>
+        <p>Make social, glow ou sofisticada — beleza que não esconde, revela.</p>
+        <ul><li>Maquiagem social</li><li>Penteados</li><li>Noivas, madrinhas e 15 anos</li></ul>
+        <a class="service-link" href="https://bit.ly/LinkWatsappClicaAqui" target="_blank" rel="noopener">Agendar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+      </article>
+      <article class="service reveal d3">
+        <div class="service-bg"><img src="img/unhas.jpg" alt="" loading="lazy"></div>
+        <span class="service-num">04</span>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M17 44V20c0-6 3-12 7-12s7 6 7 12v24"/><path d="M17 26h14"/></svg>
+        <h3>Unhas</h3>
+        <p>Nail design com acabamento impecável e brilho que dura.</p>
+        <ul><li>Alongamento em gel e fibra</li><li>Esmaltação em gel</li><li>Francesinha e blindagem</li></ul>
+        <a class="service-link" href="https://bit.ly/LinkWatsappClicaAqui" target="_blank" rel="noopener">Agendar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Portfólio -->
+<section class="section" id="portfolio">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow reveal">Portfólio</span>
+        <h2 class="reveal d1">Transformações que <em>falam por si</em>.</h2>
+      </div>
+      <p class="lead reveal d2">Alguns dos resultados recentes de clientes que passaram pelo Creativv. Clique para ampliar.</p>
+    </div>
+    <div class="gallery">
+      <figure class="g-item g1 reveal" tabindex="0"><img src="img/alana.jpg" alt="Produção de cabelo e maquiagem — Alana Manentt" loading="lazy"></figure>
+      <figure class="g-item g2 reveal d1" tabindex="0"><img src="img/unhas.jpg" alt="Unhas amendoadas em tom nude com esmaltação em gel" loading="lazy"></figure>
+      <figure class="g-item g3 reveal d2" tabindex="0"><img src="img/madrinha.jpg" alt="Penteado semipreso com ondas para madrinha" loading="lazy"></figure>
+      <figure class="g-item g4 reveal d1" tabindex="0"><img src="img/aline.jpg" alt="Cliente Aline Araújo com cor renovada e novo corte" loading="lazy"></figure>
+      <figure class="g-item g5 reveal" tabindex="0"><img src="img/maquiagem-noiva.webp" alt="Maquiadora do Creativv finalizando o batom de uma noiva" loading="lazy" style="object-position:58% 55%"></figure>
+      <figure class="g-item g6 reveal d2" tabindex="0"><img src="img/maquiagem-cliente.webp" alt="Cliente sorrindo no salão com maquiagem e cabelo produzidos pelo Creativv" loading="lazy" style="object-position:50% 30%"></figure>
+    </div>
+    <div class="gallery-foot reveal">
+      <p>Acompanhe novos trabalhos todos os dias no nosso Instagram.</p>
+      <a class="btn btn-line" href="https://www.instagram.com/creativvbeauty_/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+        @creativvbeauty_
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Como funciona -->
+<section class="process section" id="como-funciona">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow reveal">Agendamento</span>
+        <h2 class="reveal d1">Simples do primeiro <em>contato</em> ao espelho.</h2>
+      </div>
+      <p class="lead reveal d2">Atendimento com hora marcada para que o seu momento seja exclusivo, sem pressa e sem espera.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><h3>Chame no WhatsApp</h3><p>Conte o que você deseja e escolha o melhor dia e horário para você.</p></div>
+      <div class="step reveal d1"><h3>Consultoria</h3><p>Avaliamos seus fios, pele e estilo para indicar o procedimento ideal.</p></div>
+      <div class="step reveal d2"><h3>Transformação</h3><p>Relaxe e saia do salão se sentindo mais confiante, leve e você.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" aria-labelledby="cta-title">
+  <div class="cta-bg"><img src="img/madrinha.jpg" alt="" loading="lazy"></div>
+  <div class="wrap">
+    <span class="eyebrow reveal">Sua vez</span>
+    <h2 id="cta-title" class="reveal d1">Pronta para se sentir <em class="gold-text">maravilhosa</em>?</h2>
+    <p class="lead reveal d2">Garanta seu horário agora.</p>
+    <div class="hero-actions reveal d3">
+      <a class="btn btn-gold" href="https://bit.ly/LinkWatsappClicaAqui" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Contato -->
+<section class="section" id="contato" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="contact-grid reveal">
+      <div class="contact-info">
+        <span class="eyebrow">Visite-nos</span>
+        <h2>Esperamos por <em>você</em>.</h2>
+        <ul class="info-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            <div><small>Endereço</small><p>Araranguá · Santa Catarina</p></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z"/></svg>
+            <div><small>WhatsApp</small><a href="https://bit.ly/LinkWatsappClicaAqui" target="_blank" rel="noopener">Agende seu horário</a></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+            <div><small>Instagram</small><a href="https://www.instagram.com/creativvbeauty_/" target="_blank" rel="noopener">@creativvbeauty_</a></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <div><small>Atendimento</small><p>Somente com hora marcada</p></div>
+          </li>
+        </ul>
+      </div>
+      <div class="map">
+        <iframe title="Mapa — Creativv Art Hair Beauty em Araranguá" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Creativv+Art+Hair+Beauty+Ararangu%C3%A1+SC&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
-<footer class="wrap">Suas respostas só saem deste aparelho quando você tocar em enviar ou copiar.</footer>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a href="#inicio" class="logo" aria-label="Voltar ao início">
+      <img src="img/logo-transparente.png" alt="Creativv Art Hair Beauty" width="278" height="117">
+      </a>
+      <ul class="menu">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <div class="socials">
+        <a href="https://www.instagram.com/creativvbeauty_/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+        <a href="https://bit.ly/LinkWatsappClicaAqui" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Creativv Art Hair Beauty · Araranguá/SC</span>
+      <span>Beleza com técnica e personalidade.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" id="wa-float" href="https://bit.ly/LinkWatsappClicaAqui" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+  <span>Agendar</span>
+</a>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+  <button type="button" aria-label="Fechar">×</button>
+  <img src="" alt="">
+</div>
 
 <script>
-// Número de WhatsApp de quem recebe o briefing, só dígitos com DDI (ex.: "5511999998888").
-// Vazio: o WhatsApp abre e a cliente escolhe o contato.
-const WHATSAPP = "5548998449018";
-const STORE_KEY = "briefing-creativv-v1";
+(() => {
+  const html = document.documentElement, body = document.body;
+  requestAnimationFrame(() => body.classList.add('loaded'));
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-const SECTIONS = [
-  { title: "Seus dados", intro: "Para eu saber com quem falar.", qs: [
-    { id: "nome", label: "Seu nome", type: "t", required: true },
-    { id: "salao", label: "Nome do salão como deve aparecer na página", type: "t", value: "Creativv Beauty" },
-    { id: "whats", label: "WhatsApp", type: "tel" },
-    { id: "email", label: "E-mail", type: "email" },
-  ]},
-  { title: "Negócio e posicionamento", intro: "Define a mensagem principal e quais serviços ganham destaque.", qs: [
-    { id: "q1", label: "Como você descreveria o Creativv Beauty em uma frase?", type: "a" },
-    { id: "q2", label: "Qual o serviço principal?", hint: "O que mais fatura ou o que você mais quer vender.", type: "t" },
-    { id: "q3", label: "Quais serviços entram na página?", hint: "Pode colar a lista completa e marcar o que fica de fora.", type: "a" },
-    { id: "q4", label: "Como mostrar os preços?", type: "r", options: ["Preço exato", "\"A partir de\"", "Não mostrar preços"] },
-    { id: "q5", label: "Quem é sua cliente ideal?", hint: "Idade, estilo, bairro, quanto costuma gastar.", type: "a" },
-    { id: "q6", label: "O que diferencia você dos salões concorrentes da região?", type: "a" },
-    { id: "q7", label: "Cite 2 ou 3 concorrentes ou salões que você admira", type: "a" },
-    { id: "q8", label: "Onde você atende?", type: "m", options: ["No salão", "Em domicílio", "Eventos", "Noivas"] },
-  ]},
-  { title: "Identidade visual", intro: "O design é exclusivo, então quanto mais referências, melhor.", qs: [
-    { id: "q9", label: "Você tem o logo em boa qualidade?", type: "r", options: ["Sim, em vetor ou PNG sem fundo", "Só a imagem do Instagram", "Não tenho logo"] },
-    { id: "q10", label: "Já tem cores e fontes definidas? Quais?", type: "a" },
-    { id: "q11", label: "Quais palavras definem o salão?", hint: "Marque quantas quiser.", type: "m", options: ["Sofisticado", "Moderno", "Delicado", "Ousado", "Aconchegante", "Minimalista", "Divertido", "Natural"] },
-    { id: "q12", label: "Sites de qualquer área que você acha bonitos", hint: "Cole os links e diga o que gosta em cada um.", type: "a" },
-    { id: "q13", label: "Tem algo que você não quer ver de jeito nenhum?", hint: "Cores, estilos, tipos de foto.", type: "a" },
-    { id: "q14", label: "A decoração do salão tem algo marcante que a página deve refletir?", type: "a" },
-  ]},
-  { title: "Fotos, galeria e equipe", intro: "Fotos originais deixam a página bonita e leve. As do Instagram vêm comprimidas.", qs: [
-    { id: "q15", label: "Tem fotos do espaço, da equipe e dos trabalhos?", type: "r", options: ["Sim, profissionais", "Algumas, tiradas no celular", "Não tenho"] },
-    { id: "q16", label: "Posso usar as fotos do Instagram?", type: "r", options: ["Sim, e tenho os arquivos originais", "Sim, mas só estão no Instagram", "Prefiro que não"] },
-    { id: "q17", label: "Topa fazer uma sessão de fotos?", type: "r", options: ["Topo", "Prefiro usar o que tenho", "Quero conversar sobre isso"] },
-    { id: "q18", label: "Como organizar a galeria?", type: "r", options: ["Separada por serviço", "Galeria única"] },
-    { id: "q19", label: "Quer fotos de antes e depois?", type: "r", options: ["Sim, as clientes já autorizaram", "Sim, mas preciso pedir autorização", "Não"] },
-    { id: "q20", label: "Tem vídeos curtos (Reels) que devem entrar na página?", type: "r", options: ["Sim", "Não"] },
-    { id: "q21", label: "Quer apresentar a equipe?", type: "r", options: ["Sim, todas as profissionais", "Só a fundadora", "Não"] },
-    { id: "q22", label: "Tem uma história do salão ou da fundadora para contar?", type: "a" },
-  ]},
-  { title: "Depoimentos", intro: "Avaliações reais passam confiança para quem ainda não conhece o salão.", qs: [
-    { id: "q23", label: "Tem avaliações no Google? Quantas e qual a nota?", type: "t" },
-    { id: "q24", label: "Posso usar comentários do Instagram e do WhatsApp?", type: "r", options: ["Sim, com nome e foto", "Só com o primeiro nome", "Prefiro não"] },
-    { id: "q25", label: "Formato dos depoimentos", type: "r", options: ["Texto", "Vídeo", "Os dois"] },
-  ]},
-  { title: "Agendamento", intro: "É a parte que mais muda o prazo e o custo, porque define como o formulário funciona por trás.", qs: [
-    { id: "q26", label: "Como você agenda hoje?", type: "m", options: ["WhatsApp", "Direct do Instagram", "Telefone", "Sistema de agendamento"] },
-    { id: "q26b", label: "Se usa sistema, qual?", hint: "Trinks, Avec, Booksy, Salão99 ou outro.", type: "t" },
-    { id: "q27", label: "Para onde o formulário da página deve mandar os pedidos?", type: "r", options: ["Para o meu WhatsApp", "Para o meu e-mail", "Integrar com meu sistema", "Não sei, quero orientação"] },
-    { id: "q28", label: "O que o formulário deve pedir?", type: "m", options: ["Nome", "Telefone", "Serviço", "Profissional", "Data", "Horário", "Observações"] },
-    { id: "q29", label: "Como funciona o horário?", type: "r", options: ["A cliente escolhe o horário exato", "A cliente sugere e eu confirmo"] },
-    { id: "q30", label: "Cobra sinal ou pré-pagamento?", type: "r", options: ["Sim", "Só em alguns serviços", "Não"] },
-    { id: "q31", label: "Quem responde os pedidos e em quanto tempo?", type: "t" },
-    { id: "q32", label: "Quer um botão fixo de WhatsApp na tela?", type: "r", options: ["Sim", "Não"] },
-  ]},
-  { title: "Informações práticas", intro: "Aparecem no rodapé e no Google Maps.", qs: [
-    { id: "q33", label: "Endereço completo, ponto de referência e estacionamento", type: "a" },
-    { id: "q34", label: "Horário de funcionamento", hint: "Inclusive feriados.", type: "a" },
-    { id: "q35", label: "Formas de pagamento", type: "m", options: ["Pix", "Débito", "Crédito", "Parcelado", "Dinheiro"] },
-    { id: "q36", label: "Políticas de atraso, cancelamento e falta", type: "a" },
-  ]},
-  { title: "Google e celular", intro: "Define as palavras-chave e a região que vamos trabalhar para você aparecer nas buscas.", qs: [
-    { id: "q37", label: "Tem Perfil da Empresa no Google (Google Maps)?", type: "r", options: ["Sim, e tenho acesso", "Sim, mas não tenho acesso", "Não tenho", "Não sei"] },
-    { id: "q38", label: "Como as clientes te encontram hoje?", type: "m", options: ["Instagram", "Indicação", "Google", "Passando na frente", "Outro"] },
-    { id: "q39", label: "Quais bairros ou cidades você quer atender?", type: "t" },
-    { id: "q40", label: "Por quais buscas quer aparecer?", hint: "Ex.: mechas, alongamento de unha, design de sobrancelha.", type: "a" },
-    { id: "q41", label: "Já tem domínio (ex.: creativvbeauty.com.br)?", type: "r", options: ["Tenho domínio e e-mail profissional", "Só o domínio", "Não tenho"] },
-    { id: "q42", label: "Quer acompanhar visitas e agendamentos (Google Analytics, Pixel do Meta)?", type: "r", options: ["Sim", "Não", "Não sei o que é"] },
-    { id: "q43", label: "Pretende fazer anúncios pagos levando para a página?", type: "r", options: ["Sim", "Talvez", "Não"] },
-  ]},
-  { title: "Objetivos, prazo e manutenção", intro: "Para medir se a página está dando resultado.", qs: [
-    { id: "q44", label: "O que é sucesso para essa página?", type: "m", options: ["Mais agendamentos", "Clientes novas", "Ticket maior", "Noivas e eventos", "Fortalecer a marca"] },
-    { id: "q45", label: "Quantos agendamentos por mês você recebe hoje, mais ou menos?", type: "t" },
-    { id: "q46", label: "Tem promoção ou serviço de entrada para destacar?", hint: "Ex.: desconto na primeira visita.", type: "a" },
-    { id: "q47", label: "Qual o prazo? Tem alguma data importante?", hint: "Inauguração, campanha, data comemorativa.", type: "t" },
-    { id: "q48", label: "Qual o orçamento previsto?", type: "t" },
-    { id: "q49", label: "Depois de pronta, quem atualiza fotos, preços e depoimentos?", type: "r", options: ["Eu", "Prefiro um plano de manutenção", "Ainda não sei"] },
-    { id: "q50", label: "Além de você, mais alguém aprova o layout? Quem?", type: "t" },
-  ]},
-];
+  // Header fixo: ganha fundo ao rolar
+  const header = document.getElementById('header'), wa = document.getElementById('wa-float');
+  const onScroll = () => {
+    const y = scrollY;
+    header.classList.toggle('scrolled', y > 40);
+    wa.classList.toggle('show', y > innerHeight * .7);
+  };
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
-const form = document.getElementById("form");
-const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  // Menu mobile
+  const burger = document.getElementById('burger');
+  const toggleMenu = (open) => {
+    body.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    body.style.overflow = open ? 'hidden' : '';
+  };
+  burger.addEventListener('click', () => toggleMenu(!body.classList.contains('menu-open')));
+  document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
-function fieldHTML(q) {
-  const hint = q.hint ? ` <span class="hint">${esc(q.hint)}</span>` : "";
-  const req = q.required ? ' <span class="req" aria-hidden="true">*</span>' : "";
-  if (q.type === "r" || q.type === "m") {
-    const kind = q.type === "r" ? "radio" : "checkbox";
-    const pills = q.options.map((o, i) =>
-      `<label class="pill"><input type="${kind}" id="${q.id}-${i}" name="${q.id}" value="${esc(o)}"><span>${esc(o)}</span></label>`
-    ).join("");
-    return `<div class="q" role="group" aria-labelledby="${q.id}-l"><div class="label" id="${q.id}-l">${esc(q.label)}${req}${hint}</div><div class="pills">${pills}</div></div>`;
-  }
-  const label = `<label for="${q.id}">${esc(q.label)}${req}${hint}</label>`;
-  if (q.type === "a") return `<div class="q">${label}<textarea id="${q.id}" name="${q.id}"></textarea></div>`;
-  const type = q.type === "t" ? "text" : q.type;
-  const auto = { nome: "name", email: "email", whats: "tel" }[q.id] || "off";
-  return `<div class="q">${label}<input type="${type}" id="${q.id}" name="${q.id}" autocomplete="${auto}"${q.value ? ` value="${esc(q.value)}"` : ""}${q.required ? " required" : ""}></div>`;
-}
+  // Reveal ao rolar
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold:.15, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal,.clip,.step').forEach(el => io.observe(el));
 
-form.innerHTML = SECTIONS.map((s, i) => `
-  <fieldset style="animation-delay:${Math.min(i, 3) * 70}ms">
-    <legend><div class="sec-head"><span class="sec-num">${String(i + 1).padStart(2, "0")}</span><h2>${esc(s.title)}</h2><p>${esc(s.intro)}</p></div></legend>
-    ${s.qs.map(fieldHTML).join("")}
-  </fieldset>`).join("") + `
-  <fieldset class="send">
-    <legend><div class="sec-head"><span class="sec-num">Pronto</span><h2>Enviar respostas</h2><p>As respostas são montadas numa mensagem organizada. Envie pelo WhatsApp ou copie e cole onde preferir.</p></div></legend>
-    <div class="actions">
-      <a class="btn btn-primary" id="wa" href="#" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
-      <button class="btn btn-ghost" type="button" id="copy">Copiar respostas</button>
-    </div>
-    <p class="status" id="status" role="status"></p>
-    <p class="note">Respostas muito longas podem não caber no WhatsApp. Nesse caso, use Copiar e cole a mensagem na conversa.</p>
-  </fieldset>`;
+  // Link ativo no menu
+  const links = [...document.querySelectorAll('.header .menu a')];
+  const spy = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+  }), {rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('main section[id]').forEach(s => spy.observe(s));
 
-const ALL = SECTIONS.flatMap(s => s.qs);
-document.getElementById("total-q").textContent = ALL.length;
-
-function valueOf(q) {
-  if (q.type === "r" || q.type === "m") {
-    return [...form.querySelectorAll(`input[name="${q.id}"]:checked`)].map(i => i.value).join(", ");
-  }
-  return form.elements[q.id].value.trim();
-}
-
-function buildText() {
-  const out = ["*Briefing da landing page: Creativv Beauty*"];
-  SECTIONS.forEach((s, i) => {
-    const lines = s.qs.map(q => [q, valueOf(q)]).filter(([, v]) => v).map(([q, v]) => `• ${q.label}\n${v}`);
-    if (lines.length) out.push(`\n*${i + 1}. ${s.title}*\n` + lines.join("\n\n"));
+  // Lightbox
+  const lb = document.getElementById('lightbox'), lbImg = lb.querySelector('img'), lbBtn = lb.querySelector('button');
+  let lastFocus;
+  const openLb = (img) => { lastFocus = document.activeElement; lbImg.src = img.src; lbImg.alt = img.alt; lb.classList.add('open'); body.style.overflow='hidden'; lbBtn.focus(); };
+  const closeLb = () => { lb.classList.remove('open'); body.style.overflow=''; lastFocus && lastFocus.focus(); };
+  document.querySelectorAll('.g-item').forEach(f => {
+    f.addEventListener('click', () => openLb(f.querySelector('img')));
+    f.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(f.querySelector('img')); } });
   });
-  return out.join("\n");
-}
-
-function save() {
-  const data = {};
-  ALL.forEach(q => { data[q.id] = valueOf(q); });
-  try { localStorage.setItem(STORE_KEY, JSON.stringify(data)); } catch (e) {}
-}
-
-function restore() {
-  let data = null;
-  try { data = JSON.parse(localStorage.getItem(STORE_KEY) || "null"); } catch (e) {}
-  if (!data) return;
-  ALL.forEach(q => {
-    const v = data[q.id];
-    if (v == null) return;
-    if (q.type === "r" || q.type === "m") {
-      const picked = v.split(", ");
-      form.querySelectorAll(`input[name="${q.id}"]`).forEach(i => { i.checked = picked.includes(i.value); });
-    } else {
-      form.elements[q.id].value = v;
-    }
-  });
-}
-
-function update() {
-  const answered = ALL.filter(q => valueOf(q)).length;
-  document.getElementById("bar").style.width = (answered / ALL.length * 100) + "%";
-  document.getElementById("count").textContent = `${answered} de ${ALL.length} respondidas`;
-  const text = encodeURIComponent(buildText());
-  document.getElementById("wa").href = WHATSAPP
-    ? `https://wa.me/${WHATSAPP}?text=${text}`
-    : `https://api.whatsapp.com/send?text=${text}`;
-}
-
-const status = document.getElementById("status");
-function needName() {
-  if (form.elements.nome.value.trim()) return false;
-  status.textContent = "Preencha seu nome no primeiro bloco antes de enviar.";
-  status.className = "status err";
-  form.elements.nome.focus();
-  return true;
-}
-
-let saveTimer;
-form.addEventListener("input", () => {
-  update();
-  clearTimeout(saveTimer);
-  saveTimer = setTimeout(save, 400);
-  if (status.classList.contains("err") && form.elements.nome.value.trim()) { status.textContent = ""; status.className = "status"; }
-});
-form.addEventListener("submit", e => e.preventDefault());
-
-document.getElementById("wa").addEventListener("click", e => {
-  if (needName()) { e.preventDefault(); return; }
-  status.className = "status";
-  status.textContent = "O WhatsApp foi aberto em outra aba. Confira a mensagem e toque em enviar por lá.";
-});
-
-document.getElementById("copy").addEventListener("click", async () => {
-  if (needName()) return;
-  const text = buildText();
-  status.className = "status";
-  try {
-    await navigator.clipboard.writeText(text);
-    status.textContent = "Respostas copiadas. Agora é só colar na conversa ou no e-mail.";
-  } catch (e) {
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    ta.setAttribute("readonly", "");
-    ta.style.cssText = "width:100%;min-height:200px;margin-top:4px";
-    status.replaceChildren("Não deu para copiar automaticamente. Selecione o texto abaixo e copie:", ta);
-    ta.focus();
-    ta.select();
-  }
-});
-
-restore();
-update();
+  lb.addEventListener('click', e => { if (e.target !== lbImg) closeLb(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') { if (lb.classList.contains('open')) closeLb(); else toggleMenu(false); } });
+})();
 </script>
-
 </body>
 </html>
